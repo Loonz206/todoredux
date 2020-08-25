@@ -7,14 +7,16 @@ import reducers from "./reducers";
 import App from "./components/App";
 import "./index.scss";
 import registerServiceWorker from "./utils/registerServiceWorker";
-import { loadState, saveState } from './utils/localStorage.js';
+import { loadState, saveState } from "./utils/localStorage.js";
+import throttle from "lodash.throttle";
 
 const persistedState = loadState();
 let store;
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 if (process.env.NODE_ENV !== "production") {
-  store = createStore(reducers, 
+  store = createStore(
+    reducers,
     persistedState,
     composeEnhancer(applyMiddleware(logger))
 );
@@ -22,11 +24,13 @@ if (process.env.NODE_ENV !== "production") {
   store = createStore(reducers, persistedState, applyMiddleware(logger));
 }
 
-store.subscribe(()=> {
-  saveState({
-    todos: store.getState().todos
-  })
-})
+store.subscribe(
+  throttle(() => {
+    saveState({
+      todos: store.getState().todos,
+    });
+  }, 1000)
+);
 
 ReactDOM.render(
   <Provider store={store}>
