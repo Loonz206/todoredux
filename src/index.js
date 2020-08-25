@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import logger from "redux-logger";
 import reducers from "./reducers";
 import App from "./components/App";
@@ -11,12 +11,15 @@ import { loadState, saveState } from './utils/localStorage.js';
 
 const persistedState = loadState();
 let store;
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 if (process.env.NODE_ENV !== "production") {
   store = createStore(reducers, 
     persistedState,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-    applyMiddleware(logger),
+    composeEnhancer(applyMiddleware(logger))
 );
+}else {
+  store = createStore(reducers, persistedState, applyMiddleware(logger));
 }
 
 store.subscribe(()=> {
