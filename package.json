@@ -29,7 +29,7 @@
     "lodash.throttle": "^4.1.1",
     "node-uuid": "^1.4.8",
     "object-assign": "4.1.1",
-    "postcss-flexbugs-fixes": "5.0.0",
+    "postcss-flexbugs-fixes": "5.0.2",
     "postcss-loader": "4.0.0",
     "promise": "8.1.0",
     "prop-types": "^15.6.0",
