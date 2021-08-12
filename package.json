@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "autoprefixer": "10.3.0",
+    "autoprefixer": "10.3.1",
     "babel-core": "6.26.3",
     "babel-eslint": "7.2.3",
     "babel-jest": "24.0.0",
