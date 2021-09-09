@@ -6,7 +6,7 @@ import logger from "redux-logger";
 import reducers from "./reducers";
 import App from "./components/App";
 import "./index.scss";
-import registerServiceWorker from "./utils/registerServiceWorker";
+// import registerServiceWorker from "./utils/registerServiceWorker";
 import { loadState, saveState } from "./utils/localStorage.js";
 import throttle from "lodash.throttle";
 
@@ -19,8 +19,8 @@ if (process.env.NODE_ENV !== "production") {
     reducers,
     persistedState,
     composeEnhancer(applyMiddleware(logger))
-);
-}else {
+  );
+} else {
   store = createStore(reducers, persistedState, applyMiddleware(logger));
 }
 
@@ -38,4 +38,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-registerServiceWorker();
+// registerServiceWorker();

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const AddTodoForm = ({ onSubmit }) => {
   let input;
@@ -6,7 +7,7 @@ const AddTodoForm = ({ onSubmit }) => {
   return (
     <div>
       <form
-        onSubmit={e => {
+        onSubmit={(e) => {
           e.preventDefault();
           if (!input.value.trim()) {
             return;
@@ -16,7 +17,7 @@ const AddTodoForm = ({ onSubmit }) => {
         }}
       >
         <input
-          ref={node => {
+          ref={(node) => {
             input = node;
           }}
         />
@@ -24,6 +25,10 @@ const AddTodoForm = ({ onSubmit }) => {
       </form>
     </div>
   );
+};
+
+AddTodoForm.propTypes = {
+  onSubmit: PropTypes.func,
 };
 
 export default AddTodoForm;
