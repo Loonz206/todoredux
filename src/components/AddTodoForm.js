@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const AddTodoForm = ({ onSubmit }) => {
   let input;
@@ -24,6 +25,10 @@ const AddTodoForm = ({ onSubmit }) => {
       </form>
     </div>
   );
+};
+
+AddTodoForm.propTypes = {
+  onSubmit: PropTypes.func,
 };
 
 export default AddTodoForm;

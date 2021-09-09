@@ -1,4 +1,4 @@
-//actions
+// actions
 
 /*
 Actions fire reducers which then update store, which is immutable but keeps track of changes

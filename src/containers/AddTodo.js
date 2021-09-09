@@ -10,6 +10,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-let AddTodo = connect(null, mapDispatchToProps)(AddTodoForm);
+const AddTodo = connect(null, mapDispatchToProps)(AddTodoForm);
 
 export default AddTodo;
