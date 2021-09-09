@@ -5,12 +5,12 @@ Actions fire reducers which then update store, which is immutable but keeps trac
 Redux should be used for global changes otherwise feel free to use component state for toggles,
 things that are not needed for global state
 */
-import { v4 } from "node-uuid";
+import { v4 as uuidv4 } from "uuid";
 
 export const addTodo = (text) => {
   return {
     type: "ADD_TODO",
-    id: v4(),
+    id: uuidv4(),
     text,
   };
 };

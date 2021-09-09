@@ -6,7 +6,7 @@ const AddTodoForm = ({ onSubmit }) => {
   return (
     <div>
       <form
-        onSubmit={e => {
+        onSubmit={(e) => {
           e.preventDefault();
           if (!input.value.trim()) {
             return;
@@ -16,7 +16,7 @@ const AddTodoForm = ({ onSubmit }) => {
         }}
       >
         <input
-          ref={node => {
+          ref={(node) => {
             input = node;
           }}
         />

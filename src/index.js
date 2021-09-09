@@ -19,8 +19,8 @@ if (process.env.NODE_ENV !== "production") {
     reducers,
     persistedState,
     composeEnhancer(applyMiddleware(logger))
-);
-}else {
+  );
+} else {
   store = createStore(reducers, persistedState, applyMiddleware(logger));
 }
 
@@ -38,4 +38,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-registerServiceWorker();
+//registerServiceWorker();
